@@ -22,13 +22,7 @@ const id = () => {
 
   function salvar(dados) {
     const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
-    cursos.unshift(dados)
-    window.localStorage.setItem('cursos', JSON.stringify(cursos))
-    push("/cursos")
-  }
-  function alterar(id,dados){
-    const cursos = JSON.parse(window.localStorage.getItem('cursos')) || []
-    cursos.splice(id, 0, dados)
+    cursos.splice(query.id, 1, dados)
     window.localStorage.setItem('cursos', JSON.stringify(cursos))
     push("/cursos")
   }
@@ -52,10 +46,8 @@ const id = () => {
         </Form.Group>
 
         <div className='text-center'>
-        <Button variant="success" className='me-2' onClick={() =>{
-            alterar(query.id)
-        }}>
-          <BsSendCheck className='me-2'/>
+        <Button variant="success" className='me-2'>
+          <BsSendCheck className='me-2' onClick={handleSubmit(salvar)}/>
           Salvar
         </Button>
         <Link href={'/cursos'}>

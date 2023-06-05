@@ -26,7 +26,7 @@ const Cursos = () => {
     return (
         <Pagina titulo="Cursos">
 
-            <Link href="/cursos/form" className='mb-2 btn btn-primary'> 
+            <Link href="/cursos/formulario" className='mb-2 btn btn-primary'> 
             <AiFillPlusCircle className='m-1' />
             Novo
             </Link>

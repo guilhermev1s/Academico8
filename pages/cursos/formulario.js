@@ -6,7 +6,7 @@ import { Button, Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
 import { BsArrowBarLeft, BsSendCheck } from 'react-icons/bs'
 
-const Form = () => {
+const Formulario = () => {
   const { push } = useRouter()
   const { register, handleSubmit } = useForm();
 
@@ -52,4 +52,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default Formulario
