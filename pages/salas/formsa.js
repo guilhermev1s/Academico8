@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { BsCheckLg } from 'react-icons/bs'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
-import axios from 'axios'
 
 const formsa = () => {
 
