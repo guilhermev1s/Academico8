@@ -8,43 +8,43 @@ import { BsCheckLg } from 'react-icons/bs'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
 
 const id = () => {
-    const { push, query } = useRouter()
-    const { register, handleSubmit, setValue } = useForm();
-  
-    useEffect(()=>{
-      if(query.id) { 
+  const { push, query } = useRouter()
+  const { register, handleSubmit, setValue } = useForm();
+
+  useEffect(() => {
+    if (query.id) {
       const alunos = JSON.parse(window.localStorage.getItem('alunos'))
       const aluno = alunos[query.id]
-      for(let campo in aluno) {
-          setValue(campo, aluno[campo])
+      for (let campo in aluno) {
+        setValue(campo, aluno[campo])
       }
-  }
-    },[query.id])
-  
-    function salvar(dados) {
-      const alunos = JSON.parse(window.localStorage.getItem('alunos')) || []
-      alunos.splice(query.id, 1, dados)
-      window.localStorage.setItem('alunos', JSON.stringify(alunos))
-      push("/alunos")
     }
+  }, [query.id])
 
-    return (
-        <Pagina titulo="Alunos">
-            <Form>
-                <Form.Group className="mb-3" controlId="nome">
-                    <Form.Label>Nome: </Form.Label>
-                    <Form.Control type="text" {...register('nome')} />
-                </Form.Group>
+  function salvar(dados) {
+    const alunos = JSON.parse(window.localStorage.getItem('alunos')) || []
+    alunos.splice(query.id, 1, dados)
+    window.localStorage.setItem('alunos', JSON.stringify(alunos))
+    push("/alunos")
+  }
 
-                <Form.Group className="mb-3" controlId="cpf">
-                    <Form.Label>CPF: </Form.Label>
-                    <Form.Control type="text" {...register('cpf')} />
-                </Form.Group>
+  return (
+    <Pagina titulo="Alunos">
+      <Form>
+        <Form.Group className="mb-3" controlId="nome">
+          <Form.Label>Nome: </Form.Label>
+          <Form.Control type="text" {...register('nome')} />
+        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="matricula">
-                  <Form.Label>Matrícula</Form.Label>
-                  <Form.Control type="text" {...register('matricula', )} />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId="cpf">
+          <Form.Label>CPF: </Form.Label>
+          <Form.Control type="number" {...register('cpf')} />
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="matricula">
+          <Form.Label>Matrícula</Form.Label>
+          <Form.Control type="text" {...register('matricula',)} />
+        </Form.Group>
 
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -81,20 +81,22 @@ const id = () => {
           <Form.Control type="text" {...register('bairro')} />
         </Form.Group>
 
-                <div className='text-center'>
-                    <Button variant="success" onClick={handleSubmit(salvar)}>
-                        <BsCheckLg className="me-2" />
-                        Salvar
-                    </Button>
-                    <Link className="ms-2 btn btn-danger" href="/alunos">
-                        <AiOutlineArrowLeft className="me-2" />
-                        Voltar
-                    </Link>
-                </div>
-            </Form>
-        </Pagina>
-    )
+        <div className='text-center'>
+          <Button variant="success" onClick={handleSubmit(salvar)}>
+            <BsCheckLg className="me-2" />
+            Salvar
+          </Button>
+          <Link className="ms-2 btn btn-danger" href="/alunos">
+            <AiOutlineArrowLeft className="me-2" />
+            Voltar
+          </Link>
+        </div>
+      </Form>
+    </Pagina>
+  )
 }
 
 export default id
+
+
 

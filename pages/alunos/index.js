@@ -3,21 +3,21 @@ import axios from 'axios'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { Button, Table } from 'react-bootstrap'
-import { BsPencilFill } from 'react-icons/bs'
+import { BsPencilFill, BsFillTrash3Fill } from 'react-icons/bs'
 
 const index = () => {
 
     const [alunos, setAlunos] = useState([])
 
     useEffect(() => {
-        getAll()
+        setAlunos(getAll())
     }, [])
     
     function getAll(){
         return JSON.parse(window.localStorage.getItem('alunos')) || []
     }
 
-function excluir(i){
+function excluir(id){
     
     if (confirm('Deseja realmente excluir o registro?')) {
         const itens = getAll()
@@ -54,6 +54,7 @@ function excluir(i){
                     {alunos.map((alunos, index) => (
                         <tr key={index}>
                             <td>{alunos.nome}</td>
+                            <td>{alunos.cpf}</td>
                             <td>{alunos.matricula}</td>
                             <td>{alunos.email}</td>
                             <td>{alunos.telefone}</td>
@@ -62,10 +63,12 @@ function excluir(i){
                             <td>{alunos.complemento}</td>
                             <td>{alunos.numero}</td>
                             <td>{alunos.bairro}</td>
-                        <BsPencilFill onClick={() => excluir(index)} className="text-danger me-2"/> 
+                            <td>
+                        <BsFillTrash3Fill onClick={() => excluir(index)} className="text-danger me-2"/> 
                         <Link href={'/alunos/' + index}>
                         <BsPencilFill /> 
                         </Link>
+                        </td>
                         </tr>
                     ))}
                 </tbody>

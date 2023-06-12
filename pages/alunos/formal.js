@@ -22,20 +22,20 @@ const formal = () => {
     return (
         <Pagina titulo="Alunos">
             <Form>
-                <Form.Group className="mb-3" controlId="nome">
-                    <Form.Label>Nome: </Form.Label>
-                    <Form.Control type="text" {...register('nome')} />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId="nome">
+          <Form.Label>Nome: </Form.Label>
+          <Form.Control type="text" {...register('nome')} />
+        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="cpf">
-                    <Form.Label>CPF: </Form.Label>
-                    <Form.Control type="text" {...register('cpf')} />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId="cpf">
+          <Form.Label>CPF: </Form.Label>
+          <Form.Control type="text" {...register('cpf')} />
+        </Form.Group>
 
-                <Form.Group className="mb-3" controlId="matricula">
-                  <Form.Label>Matrícula</Form.Label>
-                  <Form.Control type="text" {...register('matricula', )} />
-                </Form.Group>
+        <Form.Group className="mb-3" controlId="matricula">
+          <Form.Label>Matrícula</Form.Label>
+          <Form.Control type="text" {...register('matricula' )} />
+        </Form.Group>
 
         <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
@@ -72,17 +72,17 @@ const formal = () => {
           <Form.Control type="text" {...register('bairro')} />
         </Form.Group>
 
-                <div className='text-center'>
-                    <Button variant="success" onClick={handleSubmit(salvar)}>
-                        <BsCheckLg className="me-2" />
-                        Salvar
-                    </Button>
-                    <Link className="ms-2 btn btn-danger" href="/disciplinas">
-                        <AiOutlineArrowLeft className="me-2" />
-                        Voltar
-                    </Link>
-                </div>
-            </Form>
+        <div className='text-center'>
+        <Button variant="success" onClick={handleSubmit(salvar)}>
+          <BsCheckLg className="me-2" />
+            Salvar
+        </Button>
+        <Link className="ms-2 btn btn-danger" href="/alunos">
+          <AiOutlineArrowLeft className="me-2" />
+           Voltar
+        </Link>
+        </div>
+        </Form>
         </Pagina>
     )
 }

@@ -2,7 +2,7 @@ import Pagina from '@/components/Pagina'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { Table } from 'react-bootstrap'
-import { BsPencilFill } from 'react-icons/bs'
+import { BsFillTrash3Fill, BsPencilFill } from 'react-icons/bs'
 
 const index = () => {
     const [salas, setSalas] = useState([])
@@ -41,12 +41,12 @@ const index = () => {
                 </thead>
                 <tbody>
                     {salas.map((salas, index) => (
-                        <tr key={item.id}>
+                        <tr key={index}>
                             <td>{salas.nome}</td>
                             <td>{salas.capacidade}</td>
                             <td>{salas.tipo}</td>
                             <td>
-                            <BsPencilFill onClick={() => excluir(index)} className="text-danger me-2"/> 
+                            <BsFillTrash3Fill onClick={() => excluir(index)} className="text-danger me-2"/> 
                         <Link href={'/salas/' + index}>
                             <BsPencilFill /> 
                         </Link>

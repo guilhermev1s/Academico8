@@ -3,7 +3,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { Table } from 'react-bootstrap'
-import { BsFillTrash3Fill } from 'react-icons/bs'
+import { BsFillTrash3Fill, BsPencilFill } from 'react-icons/bs'
 
 const index = () => {
 
@@ -69,7 +69,7 @@ function excluir(id){
                             <td>
                                 <BsFillTrash3Fill title="Excluir" onClick={() => excluir(index)} className='text-danger'/>
                                 <Link href={'/professores/' + index}>
-                                <BsFillTrash3Fill/>
+                                <BsPencilFill/>
                                 </Link>
                             </td>
                         </tr>

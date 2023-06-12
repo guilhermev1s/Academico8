@@ -31,7 +31,7 @@ const Cursos = () => {
             Novo
             </Link>
 
-            <Table striped bordered hover variant="dark">
+            <Table striped bordered hover>
                 <thead>
                     <tr>                       
                         <th>Nome</th>
@@ -44,13 +44,13 @@ const Cursos = () => {
                 {cursos.map((c,index) =>(
 		            <tr key={index}>
                         <td>
-                            {c.nome}
+                            {cursos.nome}
                         </td>
                         <td>
-                            {c.duracao}
+                            {cursos.duracao}
                         </td>
                         <td>
-                            {c.modalidade}
+                            {cursos.modalidade}
                         </td>
                         <td> 
                         <BsTrashFill onClick={() => excluir(index)} className="text-danger me-2"/> 

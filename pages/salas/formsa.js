@@ -13,9 +13,11 @@ const formsa = () => {
     const { register, handleSubmit } = useForm()
 
     function salvar(dados) {
-        axios.post('/api/disciplinas', dados)
-        push('/disciplinas')
-    }
+            const alunos = JSON.parse(window.localStorage.getItem('salas')) || []
+            alunos.unshift(dados)
+            window.localStorage.setItem('salas', JSON.stringify(alunos))
+            push("/salas")
+        }
 
     return (
         <Pagina titulo="Salas">

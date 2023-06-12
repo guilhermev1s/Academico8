@@ -3,7 +3,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { Table } from 'react-bootstrap'
-import { BsFillPencilFill } from 'react-icons/bs'
+import { BsFillPencilFill, BsTrashFill  } from 'react-icons/bs'
 
 const index = () => {
 
@@ -22,14 +22,6 @@ const index = () => {
             itens.splice(i, 1)
             window.localStorage.setItem('semestres', JSON.stringify(itens))
             setSemestres(itens)
-        }
-    }
-
-    function excluir(id) {
-
-        if (confirm('Deseja realmente excluir o registro?')) {
-            axios.delete('/api/disciplinas/' + id)
-            getAll()
         }
     }
 
@@ -52,6 +44,7 @@ const index = () => {
                 <tbody>
                     {semestres.map((semestres, index) => (
                         <tr key={index}>
+                            <td>{semestres.nome}</td>
                             <td>{semestres.dataInicio}</td>
                             <td>{semestres.dataFim}</td>
                             <td>
