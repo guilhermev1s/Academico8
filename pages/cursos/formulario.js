@@ -1,4 +1,5 @@
 import Pagina from '@/components/Pagina'
+import cursovalidator from '@/validators/cursoValidator'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -22,17 +23,29 @@ const Formulario = () => {
       <Form>
         <Form.Group className="mb-3" controlId="nome">
           <Form.Label>Nome</Form.Label>
-          <Form.Control type="text" placeholder="Digite o nome do curso" {...register('nome')} />
+          <Form.Control isInvalid={errors.nome} type="text" {...register('nome', cursovalidator.nome)} />
+               {
+              errors.nome &&
+              <p className='mt-1 text-danger'>{errors.nome.message}</p>
+                        }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="duracao">
           <Form.Label>Duração</Form.Label>
-          <Form.Control type="text" placeholder="Digite a duração" {...register('duracao')} />
+          <Form.Control isInvalid={errors.duracao} type="text" {...register('duracao', cursovalidator.duracao)} />
+          {
+              errors.modalidade &&
+              <p className='mt-1 text-danger'>{errors.modalidade.message}</p>
+          }
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="modalidade">
           <Form.Label>Modalidade</Form.Label>
-          <Form.Control type="text" placeholder="Digite a modalidade" {...register('modalidade')}  />
+          <Form.Control isInvalid={errors.modalidade} type="text" {...register('modalidade', cursovalidator.modalidade)} />
+          {
+              errors.modalidade &&
+              <p className='mt-1 text-danger'>{errors.modalidade.message}</p>
+          }
         </Form.Group>
 
         <div className='text-center'>
